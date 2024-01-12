@@ -1,0 +1,10 @@
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\bin\Debug\Graphique.exe.config
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\bin\Debug\Graphique.exe
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\bin\Debug\Graphique.pdb
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.csproj.AssemblyReference.cache
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.Form1.resources
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.Properties.Resources.resources
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.csproj.GenerateResource.cache
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.csproj.CoreCompileInputs.cache
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.exe
+C:\Users\Kissoune\OneDrive\Bureau\Graphique\Graphique\Graphique\obj\Debug\Graphique.pdb
