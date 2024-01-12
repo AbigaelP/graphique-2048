@@ -24,10 +24,12 @@ namespace Graphique
         // Déclarer le mouvement
         static bool controleMouvements = false;
 
-
         //initiation des variables
         Label[,] lblTableau = new Label[4, 4];
         int[,] tableau = new int[4, 4];
+
+        //le meilleur score
+        int meilleurScore = 0;
         public Form1()
         {
             InitializeComponent();
@@ -42,33 +44,41 @@ namespace Graphique
                     lblTableau[i, j] = new Label();
                     lblTableau[i, j].Bounds = new Rectangle(140 + 90 * i, 125 + 90 * j, 80, 80);
                     lblTableau[i, j].BackColor = Color.FromArgb(145, 211, 249);
-                    lblTableau[i, j].Font = new Font("Arial", 10);
+                    lblTableau[i, j].Font = new Font("Arial", 20);
+                    lblTableau[i, j].TextAlign = ContentAlignment.MiddleCenter;
                     lblTableau[i, j].ForeColor = Color.Black;
                     Controls.Add(lblTableau[i, j]);
                 }
             }
-            // Mettre deux nombre aléatoire
-            //for (int p = 0; p <= 1; p++)
-            //{
-            //Aleatoire();
-            //}
-            tableau[0,0]= 2;
-            tableau[0,1]= 4;
-            tableau[0,2]= 8; 
-            tableau[0,3]= 16;
-            tableau[1,0]= 32;
-            tableau[1,1]= 64;
-            tableau[1,2]= 128;
-            tableau[1,3]= 256;
-            tableau[2,0]= 512;
-            tableau[2,1]= 1024;
-            tableau[2,2]= 2048;
+           
+
             
             AfficherTableau();
-
+            lblScore.Text = "Score :" + score.ToString();
         }
 
+        //fonction commencer la partie 
+        private void Commencer()
+        {
+            for (int i = 0; i < tableau.GetLength(0); i++)
+            {
+                for(int j = 0; j < tableau.GetLength(1); j++)
+                {
+                    tableau[i, j] = 0;
+                }
+            }
+            score = 0;
 
+            //Mettre deux nombre aléatoire
+            for (int p = 0; p <= 1; p++)
+            {
+            Aleatoire();
+            }
+
+            AfficherTableau();
+        }
+
+        //fonction recommencer la partie
         private void AfficherTableau()
         {
             for (int i = 0; i < tableau.GetLength(0); i++)
@@ -113,6 +123,12 @@ namespace Graphique
                             case 2048:
                                 lblTableau[i, j].BackColor = Color.FromArgb(252, 214, 255);
                                 break;
+                            case 4096:
+                                lblTableau[i, j].BackColor = Color.FromArgb(252, 214, 255);
+                                break;
+                            case 8192:
+                                lblTableau[i, j].BackColor = Color.FromArgb(252, 214, 255);
+                                break;
                             default:
                                 lblTableau[i, j].BackColor = Color.FromArgb(145, 211, 249);
                                 break;
@@ -125,8 +141,16 @@ namespace Graphique
                     }
                 }
             }
+            lblScore.Text = "Score : " + score.ToString();
+            if (score > meilleurScore)
+            {
+                meilleurScore = score; 
+                lblMeilleur.Text = "Meilleur score : " + meilleurScore.ToString();
+            }
+           
         }
 
+        //fonction changer l'ordre et tuiles et les fusionner
         private int[] ChangerOrdre(int nb0, int nb1, int nb2, int nb3)
         {
 
@@ -186,6 +210,7 @@ namespace Graphique
             return i;
         }
 
+        //fonction ajouter un nombre aléatoire
         private void Aleatoire()
         {
             int ligne = tableau.GetLength(0);   //longueur de la dimmension x du tableau
@@ -426,10 +451,7 @@ namespace Graphique
             return false; // aucun 2048 dans les tuiles
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -477,8 +499,40 @@ namespace Graphique
                 // Mettre le mouvements à false
                 controleMouvements = false;
             }
-               
 
+            Controle();
+
+        }
+
+        private void btnQuitter_KeyUp(object sender, KeyEventArgs e)
+        {
+            Form1_KeyUp(sender, e);
+            
+        }
+        
+        private void btnCommencer_KeyUp(object sender, KeyEventArgs e)
+        {
+            Form1_KeyUp(sender, e);
+        }
+
+        private void btnRecommencer_KeyUp(object sender, KeyEventArgs e)
+        {
+            Form1_KeyUp(sender, e);
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnCommencer_Click(object sender, EventArgs e)
+        {
+            Commencer();
+        }
+
+        private void btnRecommencer_Click(object sender, EventArgs e)
+        {
+            Commencer();
         }
 
 
